@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   web:
-    build: mohsinkhan220/my-coffee-shop:v1
+    build: mohsinkhan2220/my-coffee-shop:v2
     ports:
       - "8086:80"
 
