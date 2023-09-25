@@ -19,7 +19,7 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId:"docker-hub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
                     sh "docker tag my-coffee-shop ${env.dockerHubUser}/my-coffee-shop:v2"
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker push ${env.dockerHubUser}/my-coffee-shop:v2"
+                    sh "docker push ${env.dockerHubUser}/my-coffee-shop:v3"
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline{
             steps {
                 echo "deploy the image on server"
                 sh "docker-compose down && docker-compose up -d"
-                //sh "docker run -d -p 8088:80 --name my-new-coffee-shop mohsinkhan2220/my-coffee-shop:v2 "
+                //sh "docker run -d -p 8088:80 --name my-new-coffee-shop mohsinkhan2220/my-coffee-shop:v3 "
                 
             }
         }
