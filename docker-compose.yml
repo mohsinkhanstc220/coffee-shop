@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   web:
-    image : mohsinkhan2220/my-coffee-shop:v2
+    image : mohsinkhan2220/my-coffee-shop:v3
     ports:
       - "8088:80"
 
