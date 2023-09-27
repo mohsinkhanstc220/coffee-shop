@@ -10,16 +10,16 @@ pipeline{
         stage("build"){
             steps {
                 echo "build the code stage"
-                sh "docker build -t my-coffee-shop ."
+                //sh "docker build -t my-coffee-shop ."
             }
         }
         stage("push"){
             steps {
                 echo "push the image to docker hub"
                 withCredentials([usernamePassword(credentialsId:"docker-hub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                    sh "docker tag my-coffee-shop ${env.dockerHubUser}/my-coffee-shop:v3"
+                    //sh "docker tag my-coffee-shop ${env.dockerHubUser}/my-coffee-shop:v3"
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker push ${env.dockerHubUser}/my-coffee-shop:v3"
+                   // sh "docker push ${env.dockerHubUser}/my-coffee-shop:v3"
                 }
             }
         }
