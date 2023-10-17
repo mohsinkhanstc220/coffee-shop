@@ -26,8 +26,8 @@ pipeline{
         stage("deploy"){
             steps {
                 echo "deploy the image on server"
-                //sh "docker-compose down && docker-compose up -d"
-                //sh "docker run -d -p 8088:80 --name my-new-coffee-shop mohsinkhan2220/my-coffee-shop:v3 "
+                // sh "docker-compose down && docker-compose up -d"
+                // sh "docker run -d -p 8088:80 --name my-new-coffee-shop mohsinkhan2220/my-coffee-shop:v3 "
                 sh "kubectl apply -f kubefile.yml --kubeconfig=/var/lib/jenkins/.kube/config"
                 
             }
